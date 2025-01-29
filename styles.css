@@ -1,0 +1,277 @@
+/* Основные стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Тёмная тема */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .section::before {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+}
+
+body.dark-theme .skill-item,
+body.dark-theme .portfolio-item,
+body.dark-theme .contact-link {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+}
+
+body.dark-theme .section-title,
+body.dark-theme .portfolio-item-title,
+body.dark-theme .skill-item h3 {
+    color: #f0f0f0;
+}
+
+body.dark-theme .section-text,
+body.dark-theme .portfolio-item-text {
+    color: #ddd;
+}
+
+body.dark-theme .badge {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Переключатель темы */
+#themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 24px;
+}
+
+/* Фоновые изображения для секций */
+.section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Остальные стили */
+.header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #3498db;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.nav-item {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #2c3e50;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+}
+
+/* Навыки */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.skill-item {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skill-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.badge {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge i {
+    font-size: 1.2rem;
+}
+
+/* Портфолио */
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 30px);
+    text-align: center;
+}
+
+.portfolio-item-title {
+    font-size: 1.8rem;
+    margin: 0 0 20px;
+    color: #2c3e50;
+}
+
+.portfolio-item-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Контакты */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.contact-link i {
+    font-size: 1.3rem;
+}
+
+.contact-link:hover {
+    transform: translateY(-3px);
+    background-color: #2980b9;
+}
+
+/* Подвал */
+.footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: 100%;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+}
