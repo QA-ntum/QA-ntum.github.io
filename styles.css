@@ -49,8 +49,27 @@ body.dark-theme .badge {
     cursor: pointer;
     z-index: 1000;
     font-size: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit; /* Цвет иконки будет меняться в зависимости от темы */
 }
 
+#themeIcon {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Стили для тёмной темы */
+body.dark-theme #themeIcon {
+    content: "🌙"; /* Иконка для тёмной темы */
+}
+
+/* Анимация при наведении */
+#themeToggle:hover #themeIcon {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
 /* Фоновые изображения для секций */
 .section {
     position: relative;
@@ -64,9 +83,10 @@ body.dark-theme .badge {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
-/* Остальные стили */
+/* Шапка */
 .header {
     background-color: #2c3e50;
     color: #fff;
@@ -103,11 +123,14 @@ body.dark-theme .badge {
     list-style: none;
     padding: 0;
     margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .nav-item {
-    display: inline;
-    margin: 0 15px;
+    margin: 0;
 }
 
 .nav-link {
@@ -120,6 +143,7 @@ body.dark-theme .badge {
     text-decoration: underline;
 }
 
+/* Заголовки секций */
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 40px;
@@ -242,6 +266,8 @@ body.dark-theme .badge {
     background-color: #3498db;
     transition: transform 0.3s ease, background-color 0.3s ease;
     font-size: 1.1rem;
+    border: 1px solid transparent; /* Добавляем границу */
+    box-sizing: border-box; /* Учитываем границу в ширине */
 }
 
 .contact-link i {
@@ -266,12 +292,106 @@ body.dark-theme .badge {
     font-size: 0.9rem;
 }
 
+/* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
-    .portfolio-item {
-        width: 100%;
+    .section {
+        padding: 60px 0;
     }
 
-    .section {
-        padding: 80px 0;
+    .header {
+        padding: 40px 0;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Граница для кнопок */
+    }
+
+    .skill-badges {
+        gap: 8px;
+    }
+
+    .badge {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .portfolio-grid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px; /* Отступы по бокам */
+    }
+
+    .portfolio-item {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1); /* Граница для портфолио */
+        box-sizing: border-box; /* Границы включены в общую ширину */
+    }
+
+    .portfolio-item-title {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-item-text {
+        font-size: 1rem;
+    }
+
+    #themeToggle {
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-text {
+        font-size: 1rem;
+    }
+
+    .skill-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .badge {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .contact-link {
+        font-size: 0.9rem;
     }
 }

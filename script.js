@@ -1,9 +1,29 @@
 // Переключение темы
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Проверяем сохранённую тему в localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        themeIcon.textContent = '🌙'; // Иконка для тёмной темы
+    } else {
+        themeIcon.textContent = '🌞'; // Иконка для светлой темы
+    }
+
+    // Переключение темы
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const isDarkTheme = body.classList.contains('dark-theme');
+
+        // Меняем иконку
+        themeIcon.textContent = isDarkTheme ? '🌙' : '🌞';
+
+        // Сохраняем тему в localStorage
+        localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    });
 });
 
 // При загрузке страницы
